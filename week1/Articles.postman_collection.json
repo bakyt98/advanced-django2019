@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "4f569e13-8c2d-4aab-8836-84ce9fd04fad",
+		"name": "Articles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Take token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"bakyt\",\n\"password\": \"ghbdtn1234\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api-token-auth/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api-token-auth",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Take data for certain user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_BAKYT}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_ADMIN}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_AIDA}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{SERVER_URL}}",
+					"host": [
+						"{{SERVER_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post new article from certain user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_BAKYT}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_AIDA}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Django\",\n    \"rating\": 1,\n    \"summary\": \"qwerty\",\n    \"submission_date\": \"2019-07-12\",\n    \"company\": 1\n}"
+				},
+				"url": {
+					"raw": "{{SERVER_URL}}",
+					"host": [
+						"{{SERVER_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update certain article",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_BAKYT}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_AIDA}}",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"summary\": \"new Summary\"\n}"
+				},
+				"url": {
+					"raw": "{{SERVER_URL}}1/",
+					"host": [
+						"{{SERVER_URL}}1"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete certain article",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{TOKEN_BAKYT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{SERVER_URL}}12/",
+					"host": [
+						"{{SERVER_URL}}12"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
