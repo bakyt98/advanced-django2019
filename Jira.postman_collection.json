@@ -1,0 +1,814 @@
+{
+	"info": {
+		"_postman_id": "c067d13d-eba5-4a55-9948-867c56d49f5d",
+		"name": "Jira",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "57722804-6cad-4814-8914-0671ee47e35d",
+								"exec": [
+									"var res = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token2\", res.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/auth/login/?email=user5@gmail.com&password=ghbdtn1234",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user5@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "ghbdtn1234"
+								}
+							]
+						},
+						"description": "Params:\\\nemail - user6@gmail.com\\\npassword - ghbdtn1234\\\nOutput:<pre>\n{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwidXNlcm5hbWUiOiJ1c2VyNUBnbWFpbC5jb20iLCJleHAiOjE1NzUzODIwMTMsImxvZ2luIjoidXNlcjVAZ21haWwuY29tIn0.hLpcnJOPrx1BCU2LByeipSOfn-YP8GfzrUmrzgvb0ow\",\n    \"user\": {\n        \"id\": 10,\n        \"login\": \"user5@gmail.com\",\n        \"name\": null\n    }\n}</pre>"
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"user5@gmail.com\",\n\t\"password\": \"ghbdtn1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/auth/register/",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						},
+						"description": "Input:<pre>\n{\n\t\"login\": \"user5@gmail.com\",\n\t\"password\": \"ghbdtn1234\"\n}</pre>\nOutput: <pre>\n{\n    \"id\": 10,\n    \"login\": \"user5@gmail.com\",\n    \"name\": null\n}</pre>"
+					},
+					"response": []
+				},
+				{
+					"name": "post user register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\": \"user7@gmail.com\",\n\t\"password\": \"jkkk3kk3kk3k3k3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/auth/user/",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								""
+							]
+						},
+						"description": "Input:<pre>\n{\n\t\"login\": \"user6@gmail.com\",\n\t\"password\": \"jkkk3kk3kk3k3k3\"\n}</pre>\nOutput:<pre>\n{\n    \"id\": 12,\n    \"login\": \"user7@gmail.com\",\n    \"name\": null\n}</pre>"
+					},
+					"response": []
+				},
+				{
+					"name": "get user login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/auth/user/?email=user6@gmail.com&password=jkkk3kk3kk3k3k3",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"auth",
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user6@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "jkkk3kk3kk3k3k3"
+								}
+							]
+						},
+						"description": "Params:\\\nemail\\ \npassword\\\nOutput:<pre>\n{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMSwidXNlcm5hbWUiOiJ1c2VyNkBnbWFpbC5jb20iLCJleHAiOjE1NzU0NzAwMTUsImxvZ2luIjoidXNlcjZAZ21haWwuY29tIn0.kghSo6pSdvZohPlesesh5G_olByky0E-dtlrhbx4MEQ\",\n    \"user\": {\n        \"id\": 11,\n        \"login\": \"user6@gmail.com\",\n        \"name\": null\n    }\n}</pre>"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "core",
+			"item": [
+				{
+					"name": "project",
+					"item": [
+						{
+							"name": "create project",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"project11 name\",\n\t\"description\": \"fjnvkhbsdlv\",\n\t\"project_type\": \"SOFTWARE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project",
+										""
+									]
+								},
+								"description": "Input:<pre>\n{\n\t\"name\": \"project11 name\",\n\t\"description\": \"fjnvkhbsdlv\",\n\t\"project_type\": \"SOFTWARE\"\n}</pre>\nOutput:<pre>\n{\n    \"id\": 18,\n    \"name\": \"project11 name\",\n    \"description\": \"fjnvkhbsdlv\",\n    \"project_type\": \"SOFTWARE\",\n    \"creator\": 10\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get projects",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project",
+										""
+									]
+								},
+								"description": "Output:<pre>\n[\n    {\n        \"id\": 18,\n        \"name\": \"project11 name\",\n        \"project_type\": \"SOFTWARE\"\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get project by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project/1/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project",
+										"1",
+										""
+									]
+								},
+								"description": "write id of project in url. Authentication needed\\\nOutput:<pre>\n{\n    \"id\": 1,\n    \"name\": \"project1 name\",\n    \"project_type\": \"Software\",\n    \"description\": \"fjnvkhbsdlv\"\n}</pre>"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "project member",
+					"item": [
+						{
+							"name": "add users to project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"project\": 18,\n\t\"user\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project_member/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project_member",
+										""
+									]
+								},
+								"description": "Input:<pre>\n{\n\t\"project\": 18,\n\t\"user\": 5\n}</pre>\nOutput:<pre>\n{\n    \"id\": 2,\n    \"project\": 18,\n    \"user\": 5\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get my projects",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project_member/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project_member",
+										""
+									]
+								},
+								"description": "Authorization needed.\\\nOutput:<pre>\n[\n    {\n        \"id\": 4,\n        \"project\": 18,\n        \"user\": 10\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "viewset create project user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"project\": 18,\n\t\"user\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project_users/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project_users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "viewsets get my projects",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/project_users/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"project_users",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "block",
+					"item": [
+						{
+							"name": "get blocks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/blocks/?prj_id=15",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"blocks",
+										""
+									],
+									"query": [
+										{
+											"key": "prj_id",
+											"value": "15"
+										}
+									]
+								},
+								"description": "Params:\\\nprj_id - 15\\\nOutput:<pre>\n[\n    {\n        \"id\": 35,\n        \"name\": \"TO DO\",\n        \"block_type\": 1,\n        \"project\": 15\n    },\n    {\n        \"id\": 36,\n        \"name\": \"In progress\",\n        \"block_type\": 2,\n        \"project\": 15\n    },\n    {\n        \"id\": 37,\n        \"name\": \"Done\",\n        \"block_type\": 3,\n        \"project\": 15\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "create_block",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"new block\",\n\t\"block_type\": 99,\n\t\"project_id\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/blocks/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"blocks",
+										""
+									]
+								},
+								"description": "Input:<pre>\n{\n\t\"name\": \"new block\",\n\t\"block_type\": 99,\n\t\"project_id\": 1\n}</pre>\nOutput:<pre>\n{\n    \"id\": 50,\n    \"name\": \"new block\",\n    \"block_type\": 99,\n    \"project\": 1\n}</pre>"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "task",
+					"item": [
+						{
+							"name": "get_tasks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task/?block_id=37",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task",
+										""
+									],
+									"query": [
+										{
+											"key": "block_id",
+											"value": "37"
+										}
+									]
+								},
+								"description": "Authorization needed. \\\n\nParams:\\\nblock_id = 37\\\nOutput:<pre>\n[\n    {\n        \"id\": 12,\n        \"name\": \"task1 name\",\n        \"block\": 37,\n        \"order\": 1\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get task by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task/12/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task",
+										"12",
+										""
+									]
+								},
+								"description": "write id in url. Authorization is needed.\\\nOutput:<pre>\n{\n    \"id\": 12,\n    \"name\": \"task1 name\",\n    \"block\": 37,\n    \"order\": 1,\n    \"description\": \";kdbvgbhklwdcj\",\n    \"creator\": {\n        \"id\": 10,\n        \"login\": \"user5@gmail.com\",\n        \"name\": null\n    },\n    \"executor\": 1,\n    \"priority\": \"LOW\"\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "create task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"block\": 37,\n\t\"name\": \"task1 name\",\n\t\"description\": \";kdbvgbhklwdcj\",\n\t\"executor\": 1,\n\t\"priority\": \"LOW\",\n\t\"order\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task",
+										""
+									]
+								},
+								"description": "Input:<pre>\n{\n\t\"block\": 37,\n\t\"name\": \"task1 name\",\n\t\"description\": \";kdbvgbhklwdcj\",\n\t\"executor\": 1,\n\t\"priority\": \"LOW\",\n\t\"order\": 1\n}</pre>\nOutput:<pre>\n{\n    \"id\": 10,\n    \"name\": \"task1 name\",\n    \"block\": 37,\n    \"order\": 1,\n    \"description\": \";kdbvgbhklwdcj\",\n    \"creator\": {\n        \"id\": 2,\n        \"login\": \"isimovabakyt@gmail.com\",\n        \"name\": null\n    },\n    \"executor\": 1,\n    \"priority\": \"LOW\"\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "create task document",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "document",
+											"type": "file",
+											"src": "/C:/Users/Lenovo/Pictures/Camera Roll/stock-photo-150595123.jpg"
+										},
+										{
+											"key": "task",
+											"value": "11",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_document/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_document",
+										""
+									]
+								},
+								"description": "Params:\\\ndocument - upload the file,\\\ntask - 11\\\nOutput:<pre>\n{\n\t\"id\": 5,\n\t\"document\": \"http://127.0.0.1:8000/media/files/stock-photo-150595123_FPN15rn.jpg\",\n\t\"creator\": 10,\n\t\"task\": 11\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get task documents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_document/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_document",
+										""
+									]
+								},
+								"description": "Output:<pre>\n[\n    {\n        \"id\": 1,\n        \"document\": \"http://127.0.0.1:8000/media/files/DSC00092.jpg\",\n        \"creator\": 4,\n        \"task\": 1\n    },\n    {\n        \"id\": 2,\n        \"document\": \"http://127.0.0.1:8000/media/files/Assignment2_Issimova_Bakyt.docx\",\n        \"creator\": 10,\n        \"task\": 12\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get task document by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_document/3/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_document",
+										"3",
+										""
+									]
+								},
+								"description": "Output:<pre>\n{\n    \"id\": 1,\n    \"document\": \"http://127.0.0.1:8000/media/files/DSC00092.jpg\",\n    \"creator\": 4,\n    \"task\": 1\n}</pre>"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "task comment",
+					"item": [
+						{
+							"name": "create a comment on task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"task\": 12,\n\t\"body\": \"some comment\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_comment/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_comment",
+										""
+									]
+								},
+								"description": "Input:<pre>\n{\n\t\"task\": 12,\n\t\"body\": \"some comment\"\n}</pre>\nOutput:<pre>\n{\n    \"id\": 1,\n    \"task\": 12,\n    \"body\": \"some comment\",\n    \"creator\": {\n        \"id\": 10,\n        \"login\": \"user5@gmail.com\",\n        \"name\": null\n    },\n    \"created_at\": \"2019-12-03T16:20:25.900360Z\"\n}</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get comments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_comment/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_comment",
+										""
+									]
+								},
+								"description": "Output:<pre>\n[\n    {\n        \"id\": 1,\n        \"task\": 12,\n        \"body\": \"some comment\"\n    }\n]</pre>"
+							},
+							"response": []
+						},
+						{
+							"name": "get comment by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "JWT {{token2}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{LOCAL_URL}}/api/task_comment/1/",
+									"host": [
+										"{{LOCAL_URL}}"
+									],
+									"path": [
+										"api",
+										"task_comment",
+										"1",
+										""
+									]
+								},
+								"description": "write id in url\\\nOutput:<pre>\n{\n    \"id\": 1,\n    \"task\": 12,\n    \"body\": \"some comment\",\n    \"creator\": {\n        \"id\": 10,\n        \"login\": \"user5@gmail.com\",\n        \"name\": null\n    },\n    \"created_at\": \"2019-12-03T16:20:25.900360Z\"\n}</pre>"
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
