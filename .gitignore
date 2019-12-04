@@ -55,7 +55,7 @@ api/db.sqlite3
 .DS_Store
 
 # Media files
-web/django/media/
+media/
 # django/media
 .idea/
 .vscode/
